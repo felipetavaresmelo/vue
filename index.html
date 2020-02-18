@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <!-- versão de desenvolvimento, inclui avisos úteis no console-->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <!-- versão de produção, otimizada para tamanho e velocidade
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+    </head>
+    <body>
+        
+        <div id="app">
+            {{ message }}
+        </div>
+
+        <div id="app-2">
+            <span v-bind:title="message">
+                Pare o mouse sobre mim e veja a dica interligada dinamicamente!
+            </span>
+        </div>
+
+        <div id="app-3">
+            <p v-if="seen">Agora você me viu</p>
+        </div>
+
+        <div id="app-4">
+            <ol>
+                <li v-for="todo in todos">
+                    {{ todo.text }}
+                </li>
+            </ol>
+        </div>
+        
+        <script src="index.js"></script>
+    </body>
+</html>
