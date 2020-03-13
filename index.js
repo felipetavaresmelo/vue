@@ -42,7 +42,70 @@ var app5 = new Vue({
     },
     methods: {
         reverseMessage: function () {
-            this.message = this.message.split('').re
+            this.message = this.message.split('').reverse().join('')
         }
     }
+})
+
+var app6 = new Vue({
+    el: '#app-6',
+    data:{
+        message: 'Olá Vue!'
+    }
+})
+
+Vue.component('todo-item', {
+    //O Componente todo-item agora aceita uma 
+    //"prop", que é como um atributo personalizado.
+    //Esta propriedade foi chamada de "todo".
+    props: ['todo'],
+    template: '<li>{{ todo.text }}</li>'
+})
+
+var app7 = new Vue({
+    el: '#app-7',
+    data: {
+        groceryList: [
+            {id: 0, text: 'Vegetais'},
+            {id: 1, text: 'Queijo'},
+            {id: 2, text: 'Qualquer outra coisa que humanos podem comer'}
+        ]
+    }
+})
+
+var appVueSchool = new Vue({
+    el: '#appVueSchool',
+    data:{
+
+    },
+
+    computed: {
+        categories(){
+            return Object.values("Array")
+        }
+    },
+
+    beforeCreate() {
+        console.log('beforeCreate', this.categories)
+    },
+
+    created() {
+        console.log('created', this.categories)
+    },
+
+    beforeMount() {
+        console.log('beforeMount', this.categories)
+    },
+
+    mounted() {
+        console.log('mounted', this.categories, this.$el.innerText)
+    },
+
+    beforeDestroy() {
+        console.log('beforeDestroy - turn off listeners', this.categories)
+    },
+
+    destroyed() {
+        console.log('destroyed', this.categories)
+    },
 })
